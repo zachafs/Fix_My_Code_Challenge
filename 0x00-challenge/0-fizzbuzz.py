@@ -8,7 +8,7 @@ def fizzbuzz(n):
     """
     FizzBuzz function prints numbers from 1 to n separated by a space.
 
-    - For multiples of three print "Fizz" instead of the number and for
+    - For multiples of three print "Fizz" and for
       multiples of five print "Buzz".
     - For numbers which are multiples of both three and five print "FizzBuzz".
     """
@@ -16,16 +16,18 @@ def fizzbuzz(n):
         return
 
     tmp_result = []
+    rules = {
+        3: "Fizz",
+        5: "Buzz"
+    }
+
     for i in range(1, n + 1):
-        if (i % 3) == 0:
-            if (i % 5) == 0:
-                tmp_result.append("FizzBuzz")
-            else:
-                tmp_result.append("Fizz")
-        elif (i % 5) == 0:
-            tmp_result.append("Buzz")
-        else:
-            tmp_result.append(str(i))
+        output = ""
+        for divisor, word in rules.items():
+            if i % divisor == 0:
+                output += word
+        tmp_result.append(output or str(i))
+    
     print(" ".join(tmp_result))
 
 
