@@ -23,7 +23,7 @@ def fizzbuzz(n):
             tmp_result.append("Fizz")
         elif (i % 5) == 0:
             tmp_result.append("Buzz")
-        elif (i % 3) != 0 and (i % 5) != 0:
+        else:
             tmp_result.append(str(i))
     print(" ".join(tmp_result))
 
@@ -37,3 +37,4 @@ if __name__ == '__main__':
 
     number = int(sys.argv[1])
     fizzbuzz(number)
+    
